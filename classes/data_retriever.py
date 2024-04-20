@@ -14,7 +14,7 @@ from robocorp import workitems
 from datetime import datetime, timedelta
 from robocorp.tasks import get_output_dir
 # from browser_manager import BrowserManager as br
-from data_processor import DataProcessor
+from class.data_processor import DataProcessor
 
 
 class DataRetriever:
