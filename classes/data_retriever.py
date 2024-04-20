@@ -21,20 +21,21 @@ class DataRetriever:
 
     def __init__(self, browser_manager):
         self.browser_manager = browser_manager
+        
     def retrive_data(self, num_months_ago, search_phrase):
         self.nu_months_ago = num_months_ago
         self.search_phrase = search_phrase
+        
         # self.browser_manager = browser_manager
         dp = DataProcessor()
-
+        
         browser = self.browser_manager.browser
-        # browser = browser_manager
-        # Declearing varibale to return the date
-        # data =[]
         counter = 1
+        
         # Handling the possible inputs
-        if num_months_ago == 0:
+        if num_months_ago <= 0:
             num_months_ago =1
+            
         # To compare the date
         current_date = datetime.now()
         target_date = current_date - timedelta(days=num_months_ago * 30)  # Assuming each month has 30 days)
@@ -54,7 +55,7 @@ class DataRetriever:
         while is_there_ShowMore:
             print("Inside while loop")
             # Search result section
-            search_list_selector = browser.find_elements('css:.search-result__list')         
+            search_list_selector = browser.find_element(locator="css:.search-result__list")     
             #browser.find_element("xpath=//*[@id='main-content-area']/div[2]/div[2]")
             articles = browser.find_elements("tag:article", parent=search_list_selector)
 
