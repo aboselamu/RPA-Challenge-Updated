@@ -1,15 +1,6 @@
-from RPA.Browser.Selenium import Selenium 
 import logging
-from pathlib import Path
-from robocorp import vault
-from robocorp import excel
-from robocorp import storage
-from datetime import datetime
 from robocorp.tasks import task
-from robocorp import workitems
-# from robocorp.workitems import WorkItems
-from datetime import datetime, timedelta
-from robocorp.tasks import get_output_dir
+from RPA.Browser.Selenium import Selenium 
 
 class BrowserManager:
     def __init__(self):
