@@ -16,7 +16,7 @@ class DataProcessor:
 
     # getting the date and description from the excert of the article
     def extract_before_ellipsis(self, text):
-        print("INside extract_before_ecli")
+        
         # checking if the text contains the excert
         if len(text) <=0:
             print("extract text len 0")
@@ -30,32 +30,36 @@ class DataProcessor:
             # Take the first part, before the '...'
             date_part = parts[0]
             description_part=parts[1]
+            
         except Exception as e:
-            print(e)
             pass
+        # Futher cleaning the text    
         description_part.replace("Â","")
     
         return date_part, description_part
     
     # formating the article's date
     def formated_article_date(self, date_extracted):
-        print("inside formated_ articl")
+
         # cleaning the date part
         date_extracted = date_extracted.strip()
-        print(date_extracted, "heee")
+
         # Defining possible hours, minutes and seconds 
         possible_hms = ["second", "seconds","min\xadutes", 
-                            "minute", "minutes", "hour","hours"]
-        print(possible_hms)
+                        "minute", "minutes", "hour","hours"
+                       ]
+
         possible_days = ["day", "days"]
     
         possible_months_format_One =["January", "Feburary", "March", "April", 
-                                        "May", "June", "July", "August", "September", 
-                                        "October", "November", "December"]
+                                     "May", "June", "July", "August", 
+                                     "September", "October", "November", "December"
+                                    ]
     
         possible_months_format_Two =["Jan", "Feb", "Mar", "Apr",
                                         "May", "Jun", "Jul", "Aug", 
-                                        "Sep", "Oct", "Nov", "Dec"]
+                                        "Sep", "Oct", "Nov", "Dec"
+                                    ]
        
         current_date = datetime.now()
        
@@ -66,6 +70,7 @@ class DataProcessor:
                 formatted_date = date_object.strftime("%Y%m%d")
                 return formatted_date
             elif date_extracted.split(" ")[1] in possible_days:
+                
                 # Split the expression to extract the number of days
                 num_days = int(date_extracted.split()[0])
                 # Calculate the target date by subtracting the number of days from the current date
