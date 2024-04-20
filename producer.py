@@ -13,8 +13,8 @@ from robocorp import workitems
 # from robocorp.workitems import WorkItems
 from datetime import datetime, timedelta
 from robocorp.tasks import get_output_dir
-from class.browser_manager import BrowserManager as BM 
-from class.data_retriever import DataRetriever 
+from classes.browser_manager import BrowserManager as BM 
+from classes.data_retriever import DataRetriever 
 
 @task
 def main():
