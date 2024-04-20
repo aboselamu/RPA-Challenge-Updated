@@ -29,7 +29,7 @@ def save_data_to_Excel():
     sheet_name = "Sheet1"
     worksheet = workbook.worksheet(sheet_name)
     row_to_append = [
-        ["No", "Title", "Date", "Description", "Picture Filename", "Count", "Contains Money"]
+        ["No", "Title", "Date", "Description", "PictureFilename", "Count", "ContainsMoney"]
     ]
     # Append the row to the worksheet
     worksheet.append_rows_to_worksheet(row_to_append, header=False)
