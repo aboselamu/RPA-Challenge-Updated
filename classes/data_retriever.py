@@ -1,21 +1,5 @@
-from RPA.Browser.Selenium import Selenium 
-import re
-import time
-import requests
 import logging
-from pathlib import Path
-from robocorp import vault
-from robocorp import excel
-from robocorp import storage
-from datetime import datetime
-from robocorp.tasks import task
-from robocorp import workitems
-# from robocorp.workitems import WorkItems
-from datetime import datetime, timedelta
-from robocorp.tasks import get_output_dir
-# from browser_manager import BrowserManager as br
 from classes.data_processor import DataProcessor
-
 
 class DataRetriever:
 
@@ -46,8 +30,9 @@ class DataRetriever:
             # browser.wait_until_element_is_visible("xpath://*[@id='main-content-area']/div[2]/div[2]", timeout=10)
             # Wait for the element to be visible with a timeout
             browser.wait_until_element_is_visible('css:.search-result__list', timeout=timedelta(seconds=10))
+            
         except Exception as e:
-            print(e, "NOOOOOO")
+            pass
     
             # to handle paggination
         is_there_ShowMore = True
