@@ -1,14 +1,9 @@
 
 import re
 import time
-import requests
 import logging
-from pathlib import Path
-
 from datetime import datetime
-
 from datetime import datetime, timedelta
-from robocorp.tasks import get_output_dir
 
 class DataProcessor:
     def __init__(self):
