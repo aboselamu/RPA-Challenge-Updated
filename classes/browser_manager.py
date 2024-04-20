@@ -64,7 +64,7 @@ class BrowserManager:
         # inserting the search phrase in the input field
         self.browser.input_text("//input[@placeholder='Search']",phrase)
         self.browser.click_button("//button[@aria-label='Search Al Jazeera']")
-        # self.browser.close_all_browsers()
+  
 
 
         # Trying to find it there is a realated articles with the search phrase
