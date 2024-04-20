@@ -55,7 +55,8 @@ class DataRetriever:
         while is_there_ShowMore:
             print("Inside while loop")
             # Search result section
-            search_list_selector = browser.find_element(locator="css:.search-result__list")     
+            search_list_selector = browser.find_element(locator="css:#main-content-area > div.l-col.l-col--8 > div.search-result__list")
+            # search_list_selector = browser.find_element(locator="css:.search-result__list")     
             #browser.find_element("xpath=//*[@id='main-content-area']/div[2]/div[2]")
             articles = browser.find_elements("tag:article", parent=search_list_selector)
 
