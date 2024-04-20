@@ -42,7 +42,9 @@ class DataRetriever:
         # to store articles for extraction
         articles_titiles = []    
         try:
-            browser.wait_until_element_is_visible("xpath://*[@id='main-content-area']/div[2]/div[2]", timeout=10)
+            # browser.wait_until_element_is_visible("xpath://*[@id='main-content-area']/div[2]/div[2]", timeout=10)
+            # Wait for the element to be visible with a timeout
+            browser.wait_until_element_is_visible('css:.search-result__list', timeout=timedelta(seconds=10))
         except Exception as e:
             print(e, "NOOOOOO")
     
@@ -52,7 +54,8 @@ class DataRetriever:
         while is_there_ShowMore:
             print("Inside while loop")
             # Search result section
-            search_list_selector = browser.find_element("xpath=//*[@id='main-content-area']/div[2]/div[2]")
+            search_list_selector = browser.find_elements('css:.search-result__list')         
+            #browser.find_element("xpath=//*[@id='main-content-area']/div[2]/div[2]")
             articles = browser.find_elements("tag:article", parent=search_list_selector)
 
             # the show more button
