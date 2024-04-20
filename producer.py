@@ -1,47 +1,38 @@
-from RPA.Browser.Selenium import Selenium 
-import re
-import time
-import requests
 import logging
-from pathlib import Path
 from robocorp import vault
 from robocorp import excel
 from robocorp import storage
-from datetime import datetime
 from robocorp.tasks import task
-from robocorp import workitems
-# from robocorp.workitems import WorkItems
-from datetime import datetime, timedelta
-from robocorp.tasks import get_output_dir
 from classes.browser_manager import BrowserManager as BM 
 from classes.data_retriever import DataRetriever 
 
 @task
 def main():
+    # getting the website
+    secrets =vault.get_secret('alijazeersite') 
+    
+    # Retrieve the text content from the asset
+    content = storage.get_text("parameters")
+
+    # splitting it to search phrase and number of months
+    search_phrase, number_of_months = content.split(',') 
+        
+    # Convert number_of_months to an integer
+    number_of_months = int(number_of_months.strip())
+
+    # Performing cleaning the phrase
+    search_phrase = search_phrase.strip()
+
+    #creating instance of Browser Manager Class
     bm = BM()
-    url = "https://www.aljazeera.com/"
-    sp = "Business"
-    number_of_months = 1
-    bm.opening_the_news_Site(url)
-    bm.search_the_phrase(sp)
+    bm.opening_the_news_Site(secrets["url"])
+    bm.search_the_phrase(search_phrase)
+
+    # creating instance of Data Retriever Class
     dr = DataRetriever(bm)
-    dr.retrive_data(number_of_months, sp)
+    dr.retrive_data(number_of_months, search_phrase)
 def close_the_browser():
     global bm
     # Close the browser
     # bm.close_browser()
 
-# @task
-# def producer():
-
-    
-    # Close the browser
-    # bm.close_browser()
-
-
-    # save_data_to_Excel(workbook, sheet_name)
-    # workbook.save(excel_file_path)
-
-    # Saving the workbook
-    # workbook.save(excel_file_path)
-    
