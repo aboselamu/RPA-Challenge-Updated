@@ -24,7 +24,7 @@ def main():
     logging.info("Starting the Robot...")
 
     # getting the website
-    secrets = vault.get_secret('alijazeersite')
+    secrets = vault.get_secret('aljazeersite')
 
     # Retrieve the text content from the asset
     content = storage.get_text("parameters")
