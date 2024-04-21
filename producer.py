@@ -5,9 +5,14 @@ from robocorp import storage
 from robocorp.tasks import task
 from classes.browser_manager import BrowserManager as BM 
 from classes.data_retriever import DataRetriever 
+from config.logging_config import setup_logging
+
+# Configure logging for this script
+setup_logging()
 
 @task
 def main():
+    
     # getting the website
     secrets =vault.get_secret('alijazeersite') 
     
