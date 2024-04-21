@@ -40,7 +40,7 @@ def main():
 
     # creating instance of Browser Manager Class
     bm = BM()
-    bm.opening_the_news_Site(secrets["url"])
+    bm.opening_the_news_site(secrets["url"])
     bm.search_the_phrase(search_phrase)
 
     # creating instance of Data Retriever Class
