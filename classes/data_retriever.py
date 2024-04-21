@@ -70,7 +70,6 @@ class DataRetriever:
             # Search result section
             search_list_selector = browser.find_element(
                 locator="css:#main-content-area > div.l-col.l-col--8 > div.search-result__list")
-            # search_list_selector = browser.find_element(locator="css:.search-result__list")
 
             articles = browser.find_elements(
                 "tag:article", parent=search_list_selector)
@@ -85,13 +84,13 @@ class DataRetriever:
                 # getting excert section
                 excert = browser.find_element("tag:p", parent=article)
 
-                # getting time and description of the post from excert
-                time_of_post, description = dp.extract_before_ellipsis(
-                    excert.text)
-
                 try:
+                    # getting time and description of the post from excert
+                    time_of_post, description = dp.extract_before_ellipsis(
+                    excert.text)
                     article_date = dp.formated_article_date(time_of_post)
                 except Exception as e:
+                    logging.info('Error: %s', e)
                     pass
 
                 # check if the artices does contains date
