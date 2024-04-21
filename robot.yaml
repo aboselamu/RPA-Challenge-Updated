@@ -5,7 +5,7 @@ tasks:
   Opening the Site:
     shell: python -m robocorp.tasks run producer.py -t main
   Save To Excel:
-    shell: python -m robocorp.tasks run consumer.py -t save_data_to_Excel
+    shell: python -m robocorp.tasks run consumer.py -t save_data_to_excel
 
 environmentConfigs:
   - environment_windows_amd64_freeze.yaml
